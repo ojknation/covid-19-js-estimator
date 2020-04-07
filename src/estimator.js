@@ -6,18 +6,16 @@ const covid19ImpactEstimator = (data) => {
     const infectionByRequestedTimeImpact = currentlyInfectedImpact * (2 ** factor);
     const infectionByRequestedTimeSevereImpact = currentlyInfectedSevereImpact * (2 ** factor);
     let object = {
-        data : input,
-        impact: {
-        currentlyInfected : currentlyInfectedImpact,
-        nfectionByRequestedTime : infectionByRequestedTimeImpact
-        },
-        severeImpact: {
-        currentlyInfected : currentlyInfectedSevereImpact,
-        infectionByRequestedTime : infectionByRequestedTimeSevereImpact
-        }
+    data: input,
+    impact: {
+    currentlyInfected:currentlyInfectedImpact,
+    infectionByRequestedTime:infectionByRequestedTimeImpact
+    },
+    severeImpact:{
+    currentlyInfected:currentlyInfectedSevereImpact,
+    infectionByRequestedTime:infectionByRequestedTimeSevereImpact
+    }
     };
     return object;
 }
 export default covid19ImpactEstimator;
-
-
