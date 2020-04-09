@@ -4,7 +4,9 @@ const covid19ImpactEstimator = (data) => {
     reportedCases,
     timeToElapse,
     periodType,
-    totalHospitalBeds
+    totalHospitalBeds,
+    avgDailyIncomeInUSD,
+    avgDailyIncomePopulation
   } = input;
   const currentlyInfectedImpact = reportedCases * 10;
   const currentlyInfectedSevereImpact = reportedCases * 50;
@@ -23,23 +25,36 @@ const covid19ImpactEstimator = (data) => {
     infectionByRequestedTimeImpact = currentlyInfectedImpact * (2 ** factor);
     infectionByRequestedTimeSevereImpact = currentlyInfectedSevereImpact * (2 ** factor);
   }
-  const availableBedSpace = Math.floor(35 * 0.01 * totalHospitalBeds);
-  const fifteenPercent = 0.01 * 15;
-  const severeCasesImpact = Math.floor(infectionByRequestedTimeImpact * fifteenPercent);
-  const severeCasesSevereImpact = Math.floor(infectionByRequestedTimeSevereImpact * fifteenPercent);
+  const availableBedSpace = 0.35 * totalHospitalBeds;
+  const severeCasesImpact = infectionByRequestedTimeImpact * 0.15;
+  const severeCasesSevereImpact = infectionByRequestedTimeSevereImpact * 0.15;
+  const hospitalBedsImpact = Math.floor(availableBedSpace - severeCasesImpact);
+  const hospitalBedsSevereImpact = Math.floor(availableBedSpace - severeCasesSevereImpact);
+  const impactCasesForICU = Math.floor(infectionByRequestedTimeImpact * 0.05);
+  const severeImpactCasesForICU = Math.floor(infectionByRequestedTimeSevereImpact * 0.05);
+  const impactVentilators = Math.floor(infectionByRequestedTimeImpact * 0.02);
+  const severeImpactVentilators = Math.floor(infectionByRequestedTimeSevereImpact * 0.02);
+  const dollarsInFlightImpact = Math.floor(infectionByRequestedTimeImpact * avgDailyIncomeInUSD * avgDailyIncomePopulation);
+  const dollarsInFlightSevereImpact = Math.floor(infectionByRequestedTimeSevereImpact * avgDailyIncomeInUSD * avgDailyIncomePopulation);
   return {
     data: input,
     impact: {
       currentlyInfected: currentlyInfectedImpact,
       infectionsByRequestedTime: infectionByRequestedTimeImpact,
       severeCasesByRequestedTime: severeCasesImpact,
-      hospitalBedsByRequestedTime: (availableBedSpace - severeCasesImpact)
+      hospitalBedsByRequestedTime: hospitalBedsImpact,
+      casesForICUByRequestedTime: impactCasesForICU,
+      casesForVentilatorsByRequestedTime: impactVentilators,
+      dollarsInFlight: dollarsInFlightImpact
     },
     severeImpact: {
       currentlyInfected: currentlyInfectedSevereImpact,
       infectionsByRequestedTime: infectionByRequestedTimeSevereImpact,
       severeCasesByRequestedTime: severeCasesSevereImpact,
-      hospitalBedsByRequestedTime: (availableBedSpace - severeCasesSevereImpact)
+      hospitalBedsByRequestedTime: hospitalBedsSevereImpact,
+      casesForICUByRequestedTime: severeImpactCasesForICU,
+      casesForVentilatorsByRequestedTime: severeImpactVentilators,
+      dollarsInFlight: dollarsInFlightSevereImpact
     }
   };
 };
