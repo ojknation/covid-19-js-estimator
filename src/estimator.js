@@ -13,30 +13,30 @@ const covid19ImpactEstimator = (data) => {
   let infectionByRequestedTimeImpact;
   let infectionByRequestedTimeSevereImpact;
   if (periodType === 'days') {
-    const factor = Math.floor(timeToElapse / 3);
-    infectionByRequestedTimeImpact = currentlyInfectedImpact * (2 ** factor);
-    infectionByRequestedTimeSevereImpact = currentlyInfectedSevereImpact * (2 ** factor);
+    const factor = timeToElapse / 3;
+    infectionByRequestedTimeImpact = Math.trunc(currentlyInfectedImpact * (2 ** factor));
+    infectionByRequestedTimeSevereImpact = Math.trunc(currentlyInfectedSevereImpact * (2 ** factor));
   } else if (periodType === 'weeks') {
-    const factor = Math.floor((timeToElapse * 7) / 3);
-    infectionByRequestedTimeImpact = currentlyInfectedImpact * (2 ** factor);
-    infectionByRequestedTimeSevereImpact = currentlyInfectedSevereImpact * (2 ** factor);
+    const factor = (timeToElapse * 7) / 3;
+    infectionByRequestedTimeImpact = Math.trunc(currentlyInfectedImpact * (2 ** factor));
+    infectionByRequestedTimeSevereImpact = Math.trunc(currentlyInfectedSevereImpact * (2 ** factor));
   } else if (periodType === 'months') {
-    const factor = Math.floor((timeToElapse * 30) / 3);
-    infectionByRequestedTimeImpact = currentlyInfectedImpact * (2 ** factor);
-    infectionByRequestedTimeSevereImpact = currentlyInfectedSevereImpact * (2 ** factor);
+    const factor = (timeToElapse * 30) / 3;
+    infectionByRequestedTimeImpact = Math.trunc(currentlyInfectedImpact * (2 ** factor));
+    infectionByRequestedTimeSevereImpact = Math.trunc(currentlyInfectedSevereImpact * (2 ** factor));
   }
   const availableBedSpace = 0.35 * totalHospitalBeds;
-  const severeCasesImpact = infectionByRequestedTimeImpact * 0.15;
-  const severeCasesSevereImpact = infectionByRequestedTimeSevereImpact * 0.15;
-  const hospitalBedsImpact = Math.floor(availableBedSpace - severeCasesImpact);
-  const hospitalBedsSevereImpact = Math.floor(availableBedSpace - severeCasesSevereImpact);
-  const impactCasesForICU = Math.floor(infectionByRequestedTimeImpact * 0.05);
-  const severeImpactCasesForICU = Math.floor(infectionByRequestedTimeSevereImpact * 0.05);
-  const impactVentilators = Math.floor(infectionByRequestedTimeImpact * 0.02);
-  const severeImpactVentilators = Math.floor(infectionByRequestedTimeSevereImpact * 0.02);
+  const severeCasesImpact = Math.trunc(infectionByRequestedTimeImpact * 0.15);
+  const severeCasesSevereImpact = Math.trunc(infectionByRequestedTimeSevereImpact * 0.15);
+  const hospitalBedsImpact = Math.trunc(availableBedSpace - severeCasesImpact);
+  const hospitalBedsSevereImpact = Math.trunc(availableBedSpace - severeCasesSevereImpact);
+  const impactCasesForICU = Math.trunc(infectionByRequestedTimeImpact * 0.05);
+  const severeImpactCasesForICU = Math.trunc(infectionByRequestedTimeSevereImpact * 0.05);
+  const impactVentilators = Math.trunc(infectionByRequestedTimeImpact * 0.02);
+  const severeImpactVentilators = Math.trunc(infectionByRequestedTimeSevereImpact * 0.02);
   const populationIncome = avgDailyIncomeInUSD * avgDailyIncomePopulation;
-  const dollarsIFImpact = Math.floor(infectionByRequestedTimeImpact * populationIncome);
-  const dollarsIFSevereImpact = Math.floor(infectionByRequestedTimeSevereImpact * populationIncome);
+  const dollarsIFImpact = Math.trunc(infectionByRequestedTimeImpact * populationIncome);
+  const dollarsIFSevereImpact = Math.trunc(infectionByRequestedTimeSevereImpact * populationIncome);
   return {
     data: input,
     impact: {
