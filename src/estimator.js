@@ -26,8 +26,8 @@ const covid19ImpactEstimator = (data) => {
     infectionBRTimeSevereImpact = currentlyInfectedSevereImpact * (2 ** factor);
   }
   const availableBedSpace = 0.35 * totalHospitalBeds;
-  const severeCasesImpact = infectionBRTimeImpact * 0.15;
-  const severeCasesSevereImpact = infectionBRTimeSevereImpact * 0.15;
+  const severeCasesImpact = Math.trunc(infectionBRTimeImpact * 0.15);
+  const severeCasesSevereImpact = Math.trunc(infectionBRTimeSevereImpact * 0.15);
   const hospitalBedsImpact = availableBedSpace - severeCasesImpact;
   const hospitalBedsSevereImpact = availableBedSpace - severeCasesSevereImpact;
   const impactCasesForICU = infectionBRTimeImpact * 0.05;
