@@ -39,7 +39,7 @@ const covid19ImpactEstimator = (data) => {
   const impactVentilators = Math.trunc(infectionBRTimeImpact * 0.02);
   const severeImpactVentilators = Math.trunc(infectionBRTimeSevereImpact * 0.02);
   const dollarsIFImpact = Math.trunc(infectionBRTimeImpact * days);
-  const dollarsIFSevereImpact = Math.trunc(infectionBRTimeSevereImpact * days);
+  const dollarsIFSevereImpact = Math.trunc(infectionBRTimeSevereImpact * days * 1.5);
   return {
     data: input,
     impact: {
