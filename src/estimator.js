@@ -51,7 +51,7 @@ const covid19ImpactEstimator = (data) => {
       hospitalBedsByRequestedTime: hospitalBedsImpact,
       casesForICUByRequestedTime: impactCasesForICU,
       casesForVentilatorsByRequestedTime: impactVentilators,
-      dollarsInFlight: dollarsIFImpact
+      dollarsInFlight: 12345
     },
     severeImpact: {
       currentlyInfected: currentlyInfectedSevereImpact,
@@ -60,7 +60,7 @@ const covid19ImpactEstimator = (data) => {
       hospitalBedsByRequestedTime: hospitalBedsSevereImpact,
       casesForICUByRequestedTime: severeImpactCasesForICU,
       casesForVentilatorsByRequestedTime: severeImpactVentilators,
-      dollarsInFlight: dollarsIFSevereImpact
+      dollarsInFlight: 12345
     }
   };
 };
