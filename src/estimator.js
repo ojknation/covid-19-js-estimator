@@ -5,11 +5,10 @@ const covid19ImpactEstimator = (data) => {
     timeToElapse,
     periodType,
     totalHospitalBeds,
-    avgDailyIncomeInUSD,
-    avgDailyIncomePopulation
+    avgDailyIncomeInUSD
   } = input;
-  const avgUSD = avgDailyIncomePopulation * avgDailyIncomeInUSD;
-  const currentlyInfectedImpact = reportedCases * 10;
+  // const avgUSD = avgDailyIncomePopulation * avgDailyIncomeInUSD;
+  // const currentlyInfectedImpact = reportedCases * 10;
   const currentlyInfectedSevereImpact = reportedCases * 50;
   let infectionBRTimeImpact;
   let infectionBRTimeSevereImpact;
@@ -39,8 +38,8 @@ const covid19ImpactEstimator = (data) => {
   const severeImpactCasesForICU = Math.trunc(infectionBRTimeSevereImpact * 0.05);
   const impactVentilators = Math.trunc(infectionBRTimeImpact * 0.02);
   const severeImpactVentilators = Math.trunc(infectionBRTimeSevereImpact * 0.02);
-  const dollarsIFImpact = infectionBRTimeImpact * days * avgUSD;
-  const dollarsIFSevereImpact = infectionBRTimeSevereImpact * days * avgUSD;
+  const dollarsIFImpact = infectionBRTimeImpact * days * avgDailyIncomeInUSD;
+  const dollarsIFSevereImpact = infectionBRTimeSevereImpact * days * avgDailyIncomeInUSD;
   return {
     data: input,
     impact: {
