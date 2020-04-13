@@ -16,6 +16,72 @@ li {
   padding: 0;
   text-decoration: none;
 }
+
+a{
+  text-decoration: none;
+  font-size: 0.2em;
+}
+
+label[for='population'] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  color: var(--primary);
+}
+
+label[for='reports'] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  color: var(--primary);
+}
+
+label[for='beds'] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  color: var(--primary);
+}
+
+label[for='period'] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  color: var(--primary);
+}
+
+label[for='duration'] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  color: var(--primary);
+}
+
 li {
   list-style-type: none;
 }
@@ -35,22 +101,20 @@ p {
 select option {
   background: var(--primary);
   color: white;
-  
 }
 
-select#period.period{
+select#period.period {
   background: var(--primary);
   color: white;
   height: 54px;
 }
 
-
 .main-text {
   line-height: 100%;
 }
 
-h1{
-    font-size: 2.5em;
+h1 {
+  font-size: 2.5em;
 }
 
 input,
@@ -93,7 +157,7 @@ input::placeholder {
 
 /* mobile styles */
 body {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .grid {
@@ -132,19 +196,14 @@ body {
   padding-bottom: 0px;
   height: fit-content;
   display: inline-block;
-  margin: 25px 25px 25px 25px;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  font-family: Sf regular;
+  margin: 25px 25px 10px 25px;
 }
 
 .form-grid input {
   text-align: left;
   color: var(--primary);
   font-size: 15px;
+  font-family: Sf regular;
 }
 
 .population {
@@ -172,7 +231,6 @@ body {
   grid-row: 4;
 }
 
-
 .button {
   grid-column: 1/9;
   grid-row: 5;
@@ -191,22 +249,30 @@ body {
 .footer {
   grid-column: 1/9;
   grid-row: 4;
-  margin: 25px 25px 25px 25px;
+  margin: 18px 25px 25px 25px;
   vertical-align: bottom;
   color: var(--formbg);
 }
 
 .stay-home {
   text-align: center;
-  vertical-align: bottom;
   font-size: 18px;
   color: var(--formbg);
+  margin-bottom: 20px;
+}
+
+div.footer > a > p {
+  text-align: center;
+  vertical-align: bottom;
+  font-size: 15px;
+  color: var(--secondary);
+  font-family: Sf regular;
 }
 
 /* small tablet styles */
 @media screen and (min-width: 620px) {
   body {
-      font-size: 20px;
+    font-size: 20px;
   }
 
   .site-nav h3 {
@@ -241,12 +307,6 @@ body {
     height: fit-content;
     display: inline-block;
     margin: 25px 25px 25px px;
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    font-family: Sf regular;
   }
 
   .form-grid input {
@@ -299,7 +359,7 @@ body {
     text-align: center;
   }
 
-  .footer{
+  .footer {
     grid-column: 2/8;
     grid-row: 4;
     margin: 25px 25px 25px px;
@@ -327,10 +387,9 @@ body {
     font-size: 4em;
   }
 
-  p{
-      font-size: 1.5em;
+  p {
+    font-size: 1.5em;
   }
-
 
   .site-nav h3 {
     font-size: 30px;
@@ -385,6 +444,12 @@ body {
     font-size: 22px;
     color: var(--formbg);
   }
+
+  .contact{
+    text-align: center;
+    font-size: 22px;
+    color: var(--formbg);
+  }
 }
 
 /* desktop styles*/
@@ -393,9 +458,9 @@ body {
     font-size: 14px;
   }
 
-  .grid{
-      display: grid;
-      grid-template-columns: repeat(12,1fr);
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
   }
   .site-nav h3 {
     font-size: 20px;
@@ -421,12 +486,6 @@ body {
     height: fit-content;
     display: inline-block;
     margin-top: 25px;
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    font-family: Sf regular;
   }
 
   .form-grid input {
@@ -471,11 +530,10 @@ body {
   }
 
   .footer {
-    margin-top: 90px;
+    margin-top: 65px;
     grid-column: 4/10;
     grid-row: 4;
   }
-
 
   .stay-home {
     text-align: center;
