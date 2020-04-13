@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="covid-19 estimator" />
+    <meta name="keywords" content="covid-19" />
+    <meta name="author" content="Boluwatife Adekola-ojo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="site-nav grid">
+      <h3>
+        COVID-19 Estimator
+      </h3>
+    </nav>
+    <section class="main grid">
+      <div class="big-message">
+        <h1 class="main-text">
+          Get close estimates<br />of the impact covid-19<br />
+          has on your region.
+        </h1>
+        <p class="leading">
+          The data presented intends to give<br />
+          insights into how much the virus has<br />
+          potentially spread, so adequate preparations<br />
+          can be made.
+        </p>
+      </div>
+      <div class="site-form grid">
+        <form action="#" class="form">
+          <div class="form-grid">
+            <input
+              data-population=""
+              type="text"
+              id="population"
+              class="population"
+              placeholder="Population"
+            />
+
+            <input
+              data-reported-cases=""
+              type="text"
+              id="reports"
+              class="reports"
+              placeholder="Reported cases"
+            />
+
+            <input
+              data-total-hospital-beds=""
+              id="beds"
+              type="text"
+              class="beds"
+              placeholder="Total hospital bed spaces"
+            />
+
+            <select
+              data-period-type=""
+              name="period"
+              id="period"
+              class="period"
+            >
+              <option value="1">Days</option>
+              <option value="2">Weeks</option>
+              <option value="3">Months</option>
+            </select>
+
+            <input
+              data-time-to-elapse=""
+              type="number"
+              class="duration"
+              placeholder="Duration"
+            />
+
+            <button data-go-estimate="" class="button">
+              Calculate estimates
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="footer">
+        <p class="stay-home">
+          Avoid large gatherings, wash your hands frequently, stay safe.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>
