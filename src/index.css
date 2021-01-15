@@ -276,7 +276,7 @@ input::placeholder {
 .stay-home {
   text-align: center;
   font-size: 18px;
-  color: var(--formbg);
+  color: var(--font-darker);
   margin-bottom: 20px;
 }
 
@@ -285,6 +285,7 @@ div.footer > a > p {
   vertical-align: bottom;
   font-size: 24px;
   color: var(--font-darker);
+  font-weight: bold;
 }
 
 /* small tablet styles */
